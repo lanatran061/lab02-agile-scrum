@@ -53,4 +53,4 @@ Mini Project: **Hệ thống quản lý đặt phòng khách sạn**
 - Repo này chỉ chứa artefacts UML/ERD.
 - Các file `.puml` có thể mở bằng PlantUML hoặc draw.io.
 
-This line is added to test Smart Commit with Jira.
+This line is added to test Smart Commit with Jira. (Again)
