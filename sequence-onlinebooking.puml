@@ -1,0 +1,23 @@
+@startuml
+actor Guest
+participant "Hotel Booking System" as HBS
+participant "Payment Gateway" as PG
+
+title Đặt phòng Online
+
+Guest -> HBS : Chọn phòng
+HBS -> HBS : Giữ phòng tạm thời (hold)
+
+Guest -> HBS : Nhập thông tin đặt phòng
+HBS -> PG : Gửi yêu cầu thanh toán
+PG --> HBS : Trả kết quả thanh toán
+
+alt Thanh toán thành công
+    HBS -> HBS : Xác nhận đặt phòng
+    HBS -> Guest : Gửi email xác nhận
+    HBS -> Guest : Thông báo thành công
+else Thanh toán thất bại
+    HBS -> HBS : Hủy giữ phòng
+    HBS -> Guest : Báo lỗi
+end
+@enduml

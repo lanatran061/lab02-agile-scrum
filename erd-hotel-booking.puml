@@ -1,0 +1,64 @@
+@startuml
+entity Guest {
+  *GuestID : int <<PK>>
+  --
+  Name : varchar
+  Phone : varchar
+  Email : varchar
+  Address : varchar
+}
+
+entity RoomType {
+  *TypeID : int <<PK>>
+  --
+  Name : varchar
+  Price : decimal
+  Capacity : int
+  Description : text
+}
+
+entity Room {
+  *RoomID : int <<PK>>
+  --
+  TypeID : int <<FK>>
+  Status : varchar
+  Floor : int
+}
+
+entity Reservation {
+  *ResvID : int <<PK>>
+  --
+  GuestID : int <<FK>>
+  RoomID : int <<FK>>
+  StaffID : int <<FK>>
+  CheckInDate : date
+  CheckOutDate : date
+  Status : varchar
+}
+
+entity Payment {
+  *PaymentID : int <<PK>>
+  --
+  ResvID : int <<FK>>
+  Amount : decimal
+  Method : varchar
+  Status : varchar
+  Date : datetime
+}
+
+entity Staff {
+  *StaffID : int <<PK>>
+  --
+  Name : varchar
+  Role : varchar
+  Username : varchar
+  PasswordHash : varchar
+}
+
+' Quan hệ 1-N
+Guest ||--o{ Reservation : "1-N"
+Reservation ||--o{ Payment : "1-N"
+RoomType ||--o{ Room : "1-N"
+Room ||--o{ Reservation : "1-N"
+Staff ||--o{ Reservation : "1-N"
+@enduml

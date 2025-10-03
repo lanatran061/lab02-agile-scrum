@@ -1,0 +1,19 @@
+@startuml
+actor Receptionist
+participant "Hotel Booking System" as HBS
+participant "Guest" as G
+
+== Check-in ==
+Receptionist -> HBS : Tra cứu mã đặt phòng
+HBS -> HBS : Gán phòng thực tế
+HBS -> HBS : Cập nhật trạng thái phòng
+HBS -> Receptionist : Thông báo Check-in thành công
+
+== Check-out ==
+Receptionist -> HBS : Yêu cầu Check-out
+HBS -> HBS : Tổng hợp chi phí
+HBS -> Receptionist : Hiển thị chi phí
+Receptionist -> G : Thu tiền từ khách
+HBS -> HBS : Cập nhật buồng phòng
+HBS -> Receptionist : Xác nhận Check-out thành công
+@enduml

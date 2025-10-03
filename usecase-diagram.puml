@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+actor Guest
+actor "Payment Gateway"
+actor Receptionist
+actor Manager
+actor Housekeeping
+
+rectangle "Hotel Booking System" {
+  (Tìm phòng, Xem chi tiết)
+  (Đặt phòng online)
+  (Thanh toán online)
+  (Check-in / Check-out)
+  (Quản lý phòng & giá)
+  (Quản lý đặt phòng)
+  (Công việc buồng phòng)
+  (Báo cáo doanh thu)
+}
+
+Guest --> (Tìm phòng, Xem chi tiết)
+Guest --> (Đặt phòng online)
+Guest --> (Thanh toán online)
+Guest --> (Check-in / Check-out)
+
+"Payment Gateway" --> (Thanh toán online)
+
+Receptionist --> (Quản lý đặt phòng)
+Receptionist --> (Check-in / Check-out)
+
+Manager --> (Quản lý phòng & giá)
+Manager --> (Báo cáo doanh thu)
+
+Housekeeping --> (Công việc buồng phòng)
+@enduml
